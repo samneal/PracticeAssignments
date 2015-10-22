@@ -1,0 +1,107 @@
+Problem Setup: Suppose we could access yesterday's stock prices as an array, where:
+
+The indices are the time in minutes past trade opening time, which was 9:30am local time.
+The values are the price in dollars of Apple stock at that time.
+For example, if the stock cost $500 at 10:30am, stock_prices_yesterday[60] = 500.
+
+Write an efficient function that takes stock_prices_yesterday and returns the best profit I could have made from 1 purchase and 1 sale of 1 Apple stock yesterday.
+
+No "shorting"—you must buy before you sell. You may not buy and sell in the same time step (at least 1 minute must pass).
+----------------------------------------
+
+int topPrice = 0;
+int topIndex = 0;
+int lowPrice = 500; //Would manually input highest price from list here
+int bestProfit = 0;
+for(int x=0; x< stock_prices_yesterday.length(); x++) //this finds the high price values
+{
+	if (stock_prices_yesterday > topPrice)
+		topPrice = stock_prices_yesterday[x];
+		topIndex = x;
+		topDiffIndex++
+	
+	x++;
+}
+for(int x=0; x< stock_prices_yesterday.length(); x++) //this finds the high price values
+{
+	
+	if (stock_prices_yesterday[x] < lowPrice)
+		if(x < topIndex)
+		{
+		lowPrice = stock_prices_yesterday[x];
+		}
+	
+	x++;
+}
+bestPrice = topPrice - lowPrice;
+
+
+return bestPrice;
+}
+
+
+
+
+
+
+
+
+===============================================OLD ATTEMPTS TO SOLVE PROBLEM
+Tried to solve problem of keeping track iof indicies with Objects and member arrays,
+but I was WAY overthinking the problem.
+
+---------------------------------Though about adding in values as members of class to keep track of index difference
+class Diff
+{
+	public:
+		int index[500];  //Estimated value
+		int price[500];	 //Estimated value
+
+}
+	
+	
+funct bestProfit(stock_prices_yesterday)
+{
+//Function is tracking price of a single stock
+//So what I need to do is efficiently find the highest difference in value
+
+Diff topDiff;
+Diff lowDiff;
+
+
+int topDiffIndex = 0;
+int lowDiffIndex = 0;
+
+
+int topPrice = 0;
+int topIndex = 0;
+int lowPrice = 500; //Would manually input highest price from list here
+int lowIndex = 0;
+int bestProfit = 0;
+for(int x=0; x< stock_prices_yesterday.length(); x++)
+{
+	if stock_prices_yesterday > topPrice
+		topPrice = stock_prices_yesterday[x];
+		topIndex = x;
+		topDiff.index[topDiffIndex] = topIndex;
+		topDiff[topDiffIndex].price = topPrice;
+		topDiffIndex++
+		
+	else if stock_prices_yesterday < lowPrice
+		lowPrice = stock_prices_yesterday[x];
+		lowIndex = x;
+		lowDiff.index[lowDiffIndex] = lowIndex;
+		lowDiff.price[lowDiffIndex] = lowPrice;
+		lowDiffIndex++;
+	x++;
+}
+
+for(int x=0; x< 500; x++)
+{
+	
+	
+}
+
+
+return topPrice;
+}
